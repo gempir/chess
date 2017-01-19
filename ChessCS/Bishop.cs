@@ -3,7 +3,7 @@ namespace ChessCS
 {
 	class Bishop : Figure
 	{
-		public Bishop(string color)
+		public Bishop(ConsoleColor color)
 		{
 			Symbol = '♗';
 			Color = color;

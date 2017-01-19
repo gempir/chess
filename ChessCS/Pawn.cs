@@ -3,7 +3,7 @@ namespace ChessCS
 {
 	class Pawn : Figure
 	{
-		public Pawn(string color)
+		public Pawn(ConsoleColor color)
 		{
 			Symbol = '♙';
 			Color = color;

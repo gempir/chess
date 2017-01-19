@@ -7,7 +7,7 @@ namespace ChessCS
 		// The color is defined by the color property
 		protected Char Symbol;
 
-		public string Color { get; protected set; }
+		public ConsoleColor Color { get; protected set; }
 
 		public override string ToString()
 		{

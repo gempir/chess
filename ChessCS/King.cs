@@ -3,7 +3,7 @@ namespace ChessCS
 {
 	class King : Figure
 	{
-		public King(string color)
+		public King(ConsoleColor color)
 		{
 			Symbol = '♔';
 			Color = color;

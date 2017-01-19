@@ -3,7 +3,7 @@ namespace ChessCS
 {
 	class Rook : Figure
 	{
-		public Rook(string color)
+		public Rook(ConsoleColor color)
 		{
 			Symbol = '♖';
 			Color = color;

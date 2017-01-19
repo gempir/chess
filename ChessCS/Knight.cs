@@ -3,7 +3,7 @@ namespace ChessCS
 {
 	class Knight : Figure
 	{
-		public Knight(string color)
+		public Knight(ConsoleColor color)
 		{
 			Symbol = '♘';
 			Color = color;
