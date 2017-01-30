@@ -14,8 +14,27 @@ namespace ChessCS
 
 		public void handleMove(Move move)
 		{
-			Figure from = BoardPositions[move.From];
-			Figure to = BoardPositions[move.To];
+			Figure from = getFigureFromField(move.From);
+			Figure to = getFigureFromField(move.To);
+
+			if (from != null && getFigureFromField(move.To) == null && from.isValidMove(move))
+			{
+				BoardPositions[move.From] = null;
+				BoardPositions[move.To] = to;
+			}
+			CommandHandler.ActivePlayer = CommandHandler.ActivePlayer == 0 ? 1 : 0;
+		}
+
+		private Figure getFigureFromField(string field)
+		{
+			try
+			{
+				return BoardPositions[field];
+			}
+			catch (Exception)
+			{
+				return null;
+			}
 		}
 
 		public bool IsGameOver()

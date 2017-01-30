@@ -4,7 +4,7 @@ namespace ChessCS
 {
 	class CommandHandler
 	{
-		public int ActivePlayer = 0;
+		public static int ActivePlayer = 0;
 
 		public CommandHandler()
 		{
@@ -25,7 +25,7 @@ namespace ChessCS
 			Console.Write("Which field do you want to move to: ");
 			string to = Console.ReadLine();
 
-			return new Move(from, to);
+			return new Move(from.ToUpper(), to.ToUpper());
 		}
 	}
 }

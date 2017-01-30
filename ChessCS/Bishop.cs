@@ -9,7 +9,7 @@ namespace ChessCS
 			Color = color;
 		}
 
-		public bool isValidMove(Move move)
+		public override bool isValidMove(Move move)
 		{
 			if (move.From[1] == move.To[1] || move.From[0] == move.To[0])
 			{
@@ -19,11 +19,11 @@ namespace ChessCS
 			{
 				return false;
 			}
-			if (Board.getColorOfField(move.From) != Board.getColorOfField(move.To)) 
+			if (Board.getColorOfField(move.From) != Board.getColorOfField(move.To))
 			{
 				return false;
 			}
-			return true;    
+			return true;
 		}
 	}
 }

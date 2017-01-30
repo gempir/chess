@@ -19,5 +19,7 @@ namespace ChessCS
 		{
 			return Environment.OSVersion.ToString().Contains("Unix");
 		}
+
+		abstract public bool isValidMove(Move move);
 	}
 }

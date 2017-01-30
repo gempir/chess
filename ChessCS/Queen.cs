@@ -8,5 +8,10 @@ namespace ChessCS
 			Symbol = isUnixSystem() ? '♕' : 'Q';
 			Color = color;
 		}
+
+		public override bool isValidMove(Move move)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }
