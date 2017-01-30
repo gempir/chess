@@ -12,6 +12,46 @@ namespace ChessCS
 			initalizeBoard();
 		}
 
+		public void handleMove(Move move)
+		{
+			Figure from = BoardPositions[move.From];
+			Figure to = BoardPositions[move.To];
+		}
+
+		public bool IsGameOver()
+		{
+			return false;
+		}
+
+		public static string getColorOfField(string field)
+		{
+			int number = int.Parse(field[1] + "");
+
+			switch (field[0])
+			{
+				case 'A':
+					return IsOdd(number) ? "dark" : "light";
+				case 'B':
+					return IsOdd(number) ? "light" : "dark";
+				case 'C':
+					return IsOdd(number) ? "dark" : "light";
+				case 'D':
+					return IsOdd(number) ? "light" : "dark";
+				case 'E':
+					return IsOdd(number) ? "dark" : "light";
+				case 'F':
+					return IsOdd(number) ? "light" : "dark";
+				case 'G':
+					return IsOdd(number) ? "dark" : "light";
+				case 'H':
+					return IsOdd(number) ? "light" : "dark";
+				default:
+					throw new Exception("Field Unkown");
+
+			}
+		}
+
+
 		void initalizeBoard()
 		{
 			// white
@@ -52,5 +92,11 @@ namespace ChessCS
 			BoardPositions.Add("G7", new Pawn(ConsoleColor.Black));
 			BoardPositions.Add("H7", new Pawn(ConsoleColor.Black));
 		}
-	}
+
+		private static bool IsOdd(int value)
+		{
+			return value % 2 != 0;
+		}
+
+}
 }

@@ -5,7 +5,7 @@ namespace ChessCS
 	{
 		public Knight(ConsoleColor color)
 		{
-			Symbol = '♘';
+			Symbol = isUnixSystem() ? '♘' : 'N';
 			Color = color;
 		}
 	}

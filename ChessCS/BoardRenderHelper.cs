@@ -24,11 +24,12 @@ namespace ChessCS
 			int x = Console.CursorLeft;
 			int y = Console.CursorTop;
 			Console.CursorTop = Console.WindowTop + Console.WindowHeight - 10;
+			Console.SetCursorPosition(0, 11);
 		}
 
 		private void PrintFigureToField(string field, Figure figure)
 		{
-			string color = getColorForField(field);
+			string color = Board.getColorOfField(field);
 			if (color == "dark")
 			{
 				Console.BackgroundColor = ConsoleColor.DarkGreen;
@@ -41,35 +42,9 @@ namespace ChessCS
 			Console.Write(figure);
 			// reset color
 			Console.ForegroundColor = ConsoleColor.White;
+			Console.BackgroundColor = ConsoleColor.Black;
 		}
 
-		private string getColorForField(string field)
-		{
-			int number = int.Parse(field[1]+"");
-
-			switch (field[0])
-			{
-				case 'A':
-					return IsOdd(number) ? "dark" : "light";
-				case 'B':
-					return IsOdd(number) ? "light" : "dark";
-				case 'C':
-					return IsOdd(number) ? "dark" : "light";
-				case 'D':
-					return IsOdd(number) ? "light" : "dark";
-				case 'E':
-					return IsOdd(number) ? "dark" : "light";
-				case 'F':
-					return IsOdd(number) ? "light" : "dark";
-				case 'G':
-					return IsOdd(number) ? "dark" : "light";
-				case 'H':
-					return IsOdd(number) ? "light" : "dark";
-				default:
-					throw new Exception("Field Unkown");	
-					
-			}
-		}
 
 		private Tuple<int, int> GetCursorPositionsForField(string field)
 		{
@@ -249,10 +224,6 @@ namespace ChessCS
 			Console.Write("G ");
 			Console.Write("H");
 		}
-			       
-        private static bool IsOdd(int value)
-		{
-			return value % 2 != 0;
-		}
+			      
 	}
 }

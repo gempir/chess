@@ -5,7 +5,7 @@ namespace ChessCS
 	{
 		public Pawn(ConsoleColor color)
 		{
-			Symbol = '♙';
+			Symbol = isUnixSystem() ? '♙' : 'P';
 			Color = color;
 		}
 	}

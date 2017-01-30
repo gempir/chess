@@ -5,7 +5,7 @@ namespace ChessCS
 	{
 		public Rook(ConsoleColor color)
 		{
-			Symbol = '♖';
+			Symbol = isUnixSystem() ? '♖' : 'R';
 			Color = color;
 		}
 	}

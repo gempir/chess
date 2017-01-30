@@ -8,8 +8,17 @@ namespace ChessCS
 		{
 			Board board = new Board();
 			BoardRenderHelper renderHelper = new BoardRenderHelper();
+			CommandHandler cmdHandler = new CommandHandler();
 
-			renderHelper.Render(board);
+			while (!board.IsGameOver())
+			{
+				Console.Clear();
+				Console.SetCursorPosition(0,1);
+				renderHelper.Render(board);
+				Move move = cmdHandler.getMove();
+				board.handleMove(move);
+			}
+
 		}
 	}
 }

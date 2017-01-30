@@ -13,5 +13,11 @@ namespace ChessCS
 		{
 			return Symbol.ToString();
 		}
+
+		// On windows the default console does not support Unicode
+		protected bool isUnixSystem()
+		{
+			return Environment.OSVersion.ToString().Contains("Unix");
+		}
 	}
 }

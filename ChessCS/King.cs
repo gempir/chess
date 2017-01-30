@@ -5,7 +5,7 @@ namespace ChessCS
 	{
 		public King(ConsoleColor color)
 		{
-			Symbol = '♔';
+			Symbol = isUnixSystem() ? '♔' : 'K';
 			Color = color;
 		}
 	}

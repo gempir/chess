@@ -43,6 +43,8 @@
     <Compile Include="Bishop.cs" />
     <Compile Include="Knight.cs" />
     <Compile Include="Pawn.cs" />
+    <Compile Include="CommandHandler.cs" />
+    <Compile Include="Move.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
