@@ -20,9 +20,19 @@ namespace ChessCS
 			if (from != null && getFigureFromField(move.To) == null && from.isValidMove(move))
 			{
 				BoardPositions[move.From] = null;
-				BoardPositions[move.To] = to;
+				BoardPositions[move.To] = from;
+			}
+			else {
+				Console.WriteLine(from.isValidMove(move));
+				//throw new Exception("Invalid move");
 			}
 			CommandHandler.ActivePlayer = CommandHandler.ActivePlayer == 0 ? 1 : 0;
+
+
+			foreach (var fig in BoardPositions)
+			{
+				Console.WriteLine(fig.Key + " " + fig.Value);
+			}
 		}
 
 		private Figure getFigureFromField(string field)

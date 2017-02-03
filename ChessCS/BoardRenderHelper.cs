@@ -38,7 +38,7 @@ namespace ChessCS
 			{
 				Console.BackgroundColor = ConsoleColor.Green;
 			}
-			Console.ForegroundColor = figure.Color;
+			Console.ForegroundColor = ConsoleColor.Yellow;
 			Console.Write(figure);
 			// reset color
 			Console.ForegroundColor = ConsoleColor.White;
