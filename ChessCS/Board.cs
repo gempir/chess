@@ -15,7 +15,7 @@ namespace ChessCS
 		public void handleMove(Move move)
 		{
 			Figure from = getFigureFromField(move.From);
-			Figure to = getFigureFromField(move.To);
+			//Figure to = getFigureFromField(move.To);
 
 			if (from != null && getFigureFromField(move.To) == null && from.isValidMove(move))
 			{
@@ -23,16 +23,10 @@ namespace ChessCS
 				BoardPositions[move.To] = from;
 			}
 			else {
-				Console.WriteLine(from.isValidMove(move));
+				Console.WriteLine("INVALID MOVE");
 				//throw new Exception("Invalid move");
 			}
 			CommandHandler.ActivePlayer = CommandHandler.ActivePlayer == 0 ? 1 : 0;
-
-
-			foreach (var fig in BoardPositions)
-			{
-				Console.WriteLine(fig.Key + " " + fig.Value);
-			}
 		}
 
 		private Figure getFigureFromField(string field)
