@@ -29,6 +29,10 @@ namespace ChessCS
 
 		private void PrintFigureToField(string field, Figure figure)
 		{
+			if (figure == null)
+			{
+				throw new Exception("Figure is null");
+			}
 			string color = Board.getColorOfField(field);
 			if (color == "dark")
 			{
