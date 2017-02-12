@@ -11,6 +11,15 @@ namespace ChessCS
 			
 		}
 
+		public static bool isActive(ConsoleColor Color)
+		{
+			if (Color == ConsoleColor.White && ActivePlayer == 0)
+			{
+				return true;
+			}
+			return false;
+		}
+
 		public Move getMove()
 		{
 			if (ActivePlayer == 0)

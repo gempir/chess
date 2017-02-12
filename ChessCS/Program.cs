@@ -16,7 +16,14 @@ namespace ChessCS
 				Console.SetCursorPosition(0,1);
 				renderHelper.Render(board);
 				Move move = cmdHandler.getMove();
-				board.handleMove(move);
+				try
+				{
+					board.handleMove(move);
+				}
+				catch (InvalidOperationException)
+				{
+					
+				}
 			}
 
 		}

@@ -31,7 +31,7 @@ namespace ChessCS
 		{
 			if (figure == null)
 			{
-				throw new Exception("Figure is null");
+				return;
 			}
 			string color = Board.getColorOfField(field);
 			if (color == "dark")

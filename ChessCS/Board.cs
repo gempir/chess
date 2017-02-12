@@ -15,16 +15,20 @@ namespace ChessCS
 		public void handleMove(Move move)
 		{
 			Figure from = getFigureFromField(move.From);
-			//Figure to = getFigureFromField(move.To);
+			Figure to = getFigureFromField(move.To);
 
-			if (from != null && getFigureFromField(move.To) == null && from.isValidMove(move))
+			if (
+				from != null 
+				&& to == null 
+				&& from.isValidMove(move) 
+				&& CommandHandler.isActive(from.Color)
+			)
 			{
 				BoardPositions[move.From] = null;
 				BoardPositions[move.To] = from;
 			}
 			else {
-				Console.WriteLine("INVALID MOVE");
-				//throw new Exception("Invalid move");
+				throw new InvalidOperationException("Invalid move");
 			}
 			CommandHandler.ActivePlayer = CommandHandler.ActivePlayer == 0 ? 1 : 0;
 		}
