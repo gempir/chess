@@ -20,7 +20,7 @@ namespace ChessCS
 			if (
 				from != null 
 				&& to == null 
-				&& from.isValidMove(move) 
+				&& from.isValidMove(move, BoardPositions) 
 				&& CommandHandler.isActive(from.Color)
 			)
 			{

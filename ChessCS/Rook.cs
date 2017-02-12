@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace ChessCS
 {
 	class Rook : Figure
@@ -9,7 +11,7 @@ namespace ChessCS
 			Color = color;
 		}
 
-		public override bool isValidMove(Move move)
+		public override bool isValidMove(Move move, Dictionary<string, Figure> boardPositions)
 		{
 			throw new NotImplementedException();
 		}

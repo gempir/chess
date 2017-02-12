@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace ChessCS
 {
 	abstract class Figure
@@ -20,6 +22,6 @@ namespace ChessCS
 			return Environment.OSVersion.ToString().Contains("Unix");
 		}
 
-		abstract public bool isValidMove(Move move);
+		abstract public bool isValidMove(Move move, Dictionary<string, Figure> boardPositions);
 	}
 }
