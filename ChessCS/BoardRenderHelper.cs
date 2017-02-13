@@ -9,7 +9,7 @@ namespace ChessCS
 		}
 
 		// renders a full chess board to the console
-		public void Render(Board board)
+		public void Render(Board board, string message = null)
 		{
 			RenderEmptyBoard();
 
@@ -25,6 +25,10 @@ namespace ChessCS
 			int y = Console.CursorTop;
 			Console.CursorTop = Console.WindowTop + Console.WindowHeight - 10;
 			Console.SetCursorPosition(0, 11);
+
+			Console.ForegroundColor = ConsoleColor.Red;
+			Console.WriteLine(message);
+			Console.ForegroundColor = ConsoleColor.White;
 		}
 
 		private void PrintFigureToField(string field, Figure figure)

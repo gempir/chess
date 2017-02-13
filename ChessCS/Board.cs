@@ -19,9 +19,9 @@ namespace ChessCS
 
 			if (
 				from != null 
-				&& to == null 
-				&& from.isValidMove(move, BoardPositions) 
+				&& getColorOfField(move.To) != getColorOfField(move.From)
 				&& CommandHandler.isActive(from.Color)
+				&& from.isValidMove(move, BoardPositions)
 			)
 			{
 				BoardPositions[move.From] = null;

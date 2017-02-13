@@ -26,50 +26,42 @@ namespace ChessCS
 				return false;
 			}
 
-			int fromChar, currentChar;
-			fromChar = currentChar = (int)move.From[0];
+			int fromChar = (int)move.From[0];
 			int toChar = (int)move.To[0];
 
-			int fromNum, currentNum;
-			fromNum = currentNum = (int)move.From[1];
-			int toNum = (int)move.To[0];
+			int fromNum = (int)(move.From[1]-'0');
+			int toNum = (int)(move.To[0]-'0');
 
 
-			List<string> fieldList = new List<string>();
+			List<string> fieldsToCheck = new List<string>();
 
-			while (toChar != currentChar || toNum != currentNum)
+			int fieldsBetween = Math.Abs(toChar - fromChar) - 1;
+
+			for (int i = 1; i <= fieldsBetween; i++)
 			{
-				Console.WriteLine(currentChar);
-				string searchChar, searchNum;
-				if (toChar > fromChar)
+				if (toChar > fromChar && toNum > fromNum)
 				{
-					searchChar = Char.ConvertFromUtf32(currentChar++);
-					currentChar++;
+					fieldsToCheck.Add(Char.ConvertFromUtf32((fromChar + i)) + (fromNum + i).ToString());
 				}
-				else {
-					searchChar = Char.ConvertFromUtf32(currentChar--);
-					currentChar--;
-				}
-				if (toNum > fromNum)
+				if (toChar < fromChar && toNum > fromNum)
 				{
-					searchNum = currentNum++.ToString();
-					currentNum++;
+					fieldsToCheck.Add(Char.ConvertFromUtf32((fromChar - i)) + (fromNum + i).ToString());
 				}
-				else {
-					searchNum = currentNum--.ToString();
-					currentNum--;
+				if (toChar > fromChar && toNum < fromNum)
+				{
+					fieldsToCheck.Add(Char.ConvertFromUtf32((fromChar + i)) + (fromNum - i).ToString());
 				}
-
-				fieldList.Add(searchChar + searchNum);
+				if (toChar < fromChar && toNum < fromNum)
+				{
+					fieldsToCheck.Add(Char.ConvertFromUtf32((fromChar - i)) + (fromNum - i).ToString());
+				}
 			}
 
-			foreach (string field in fieldList)
+			foreach (string field in fieldsToCheck)
 			{
-				if (boardPositions[field] == null)
-				{
-					continue;
+				if (boardPositions[field] != null) {
+					return false;
 				}
-				return false;
 			}
 			return true;
 		}
