@@ -14,8 +14,6 @@ namespace ChessCS
 
 			while (!board.IsGameOver())
 			{
-				Console.Clear();
-				Console.SetCursorPosition(0,1);
 				renderHelper.Render(board, message);
 				Move move = cmdHandler.getMove();
 				try

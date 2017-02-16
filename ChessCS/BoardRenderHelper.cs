@@ -11,6 +11,9 @@ namespace ChessCS
 		// renders a full chess board to the console
 		public void Render(Board board, string message = null)
 		{
+            Console.Clear();
+            Console.SetCursorPosition(0, 1);
+
 			RenderEmptyBoard();
 
 			foreach (var entry in board.BoardPositions)

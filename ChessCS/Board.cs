@@ -19,7 +19,6 @@ namespace ChessCS
 
 			if (
 				from != null 
-				&& getColorOfField(move.To) != getColorOfField(move.From)
 				&& CommandHandler.isActive(from.Color)
 				&& from.isValidMove(move, BoardPositions)
 			)

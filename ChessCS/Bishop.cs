@@ -30,7 +30,7 @@ namespace ChessCS
 			int toChar = (int)move.To[0];
 
 			int fromNum = (int)(move.From[1]-'0');
-			int toNum = (int)(move.To[0]-'0');
+			int toNum = (int)(move.To[1]-'0');
 
 
 			List<string> fieldsToCheck = new List<string>();
