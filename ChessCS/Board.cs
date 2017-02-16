@@ -20,6 +20,7 @@ namespace ChessCS
 			if (
 				from != null 
 				&& CommandHandler.isActive(from.Color)
+				&& isEmptyOrOpponent(to)
 				&& from.isValidMove(move, BoardPositions)
 			)
 			{
@@ -29,7 +30,20 @@ namespace ChessCS
 			else {
 				throw new InvalidOperationException("Invalid move");
 			}
-			CommandHandler.ActivePlayer = CommandHandler.ActivePlayer == 0 ? 1 : 0;
+			CommandHandler.ActiveColor = CommandHandler.ActiveColor == ConsoleColor.White ? ConsoleColor.Black : ConsoleColor.White;
+		}
+
+		private bool isEmptyOrOpponent(Figure to)
+		{
+			if (to == null)
+			{
+				return true;
+			}
+			if (to.Color == CommandHandler.ActiveColor)
+			{
+				return false;
+			}
+			return true;
 		}
 
 		private Figure getFigureFromField(string field)

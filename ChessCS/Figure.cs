@@ -22,6 +22,11 @@ namespace ChessCS
 			return Environment.OSVersion.ToString().Contains("Unix");
 		}
 
+		protected string getFieldForaIntCharAndNum(int character, int num)
+		{
+			return (Char.ConvertFromUtf32(character) + num.ToString()).ToString();
+		}
+
 		abstract public bool isValidMove(Move move, Dictionary<string, Figure> boardPositions);
 	}
 }

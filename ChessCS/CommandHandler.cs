@@ -4,23 +4,18 @@ namespace ChessCS
 {
 	class CommandHandler
 	{
-		public static int ActivePlayer = 0;
-
-		public CommandHandler()
-		{
-			
-		}
+		public static ConsoleColor ActiveColor = ConsoleColor.White;
 
 		public static bool isActive(ConsoleColor Color)
 		{
 			return 
-				(Color == ConsoleColor.White && ActivePlayer == 0) 
-				| (Color == ConsoleColor.Black && ActivePlayer == 1);
+				(Color == ConsoleColor.White && ActiveColor == ConsoleColor.White) 
+				| (Color == ConsoleColor.Black && ActiveColor == ConsoleColor.Black);
 		}
 
 		public Move getMove()
 		{
-			if (ActivePlayer == 0)
+			if (ActiveColor == ConsoleColor.White)
 			{
 				Console.WriteLine("It's White's move.");
 			}
