@@ -13,14 +13,6 @@ namespace ChessCS
 
 		public override bool isValidMove(Move move, Dictionary<string, Figure> boardPositions)
 		{
-			if (move.From[1] == move.To[1] || move.From[0] == move.To[0])
-			{
-				return false;
-			}
-			if (move.From == move.To)
-			{
-				return false;
-			}
 			if (Board.getColorOfField(move.From) != Board.getColorOfField(move.To))
 			{
 				return false;
