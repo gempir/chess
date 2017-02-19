@@ -25,61 +25,66 @@ namespace ChessCS
 
 			int fieldsBetween = Math.Abs(toChar - fromChar) - 1;
 
-			for (int i = 1; i <= fieldsBetween; i++)
+
+			if (fromNum != toNum && fromChar != toChar)
 			{
-				if (toChar > fromChar && toNum > fromNum)
+				for (int i = 1; i <= fieldsBetween; i++)
 				{
-					fieldsToCheck.Add(Char.ConvertFromUtf32((fromChar + i)) + (fromNum + i).ToString());
-				}
-				if (toChar < fromChar && toNum > fromNum)
-				{
-					fieldsToCheck.Add(Char.ConvertFromUtf32((fromChar - i)) + (fromNum + i).ToString());
-				}
-				if (toChar > fromChar && toNum < fromNum)
-				{
-					fieldsToCheck.Add(Char.ConvertFromUtf32((fromChar + i)) + (fromNum - i).ToString());
-				}
-				if (toChar < fromChar && toNum < fromNum)
-				{
-					fieldsToCheck.Add(Char.ConvertFromUtf32((fromChar - i)) + (fromNum - i).ToString());
-				}
-			}
-
-			// rook like
-
-			if (fromNum != toNum)
-			{
-				int fieldsBetweenRook = Math.Abs(toNum - fromNum) - 1;
-
-				for (int i = 1; i <= fieldsBetweenRook; i++)
-				{
-					if (fromNum > toNum)
+					if (toChar > fromChar && toNum > fromNum)
 					{
-						fieldsToCheck.Add(getFieldForaIntCharAndNum(fromChar, fromNum - i));
+						fieldsToCheck.Add(Char.ConvertFromUtf32((fromChar + i)) + (fromNum + i).ToString());
 					}
-					if (fromNum < toNum)
+					if (toChar < fromChar && toNum > fromNum)
 					{
-						fieldsToCheck.Add(getFieldForaIntCharAndNum(fromChar, fromNum + i));
+						fieldsToCheck.Add(Char.ConvertFromUtf32((fromChar - i)) + (fromNum + i).ToString());
 					}
-				}
-
-			}
-			if (fromChar != toChar)
-			{
-				int fieldsBetweenRook = Math.Abs(fromChar - toChar) - 1;
-
-				for (int i = 1; i <= fieldsBetweenRook; i++)
-				{
-					if (fromChar > toChar)
+					if (toChar > fromChar && toNum < fromNum)
 					{
-						fieldsToCheck.Add(getFieldForaIntCharAndNum(fromChar - i, fromNum));
+						fieldsToCheck.Add(Char.ConvertFromUtf32((fromChar + i)) + (fromNum - i).ToString());
 					}
-					if (fromChar < toChar)
+					if (toChar < fromChar && toNum < fromNum)
 					{
-						fieldsToCheck.Add(getFieldForaIntCharAndNum(fromChar + i, fromNum));
+						fieldsToCheck.Add(Char.ConvertFromUtf32((fromChar - i)) + (fromNum - i).ToString());
 					}
 				}
 			}
+			else 
+			{
+				if (fromNum != toNum)
+					{
+						int fieldsBetweenRook = Math.Abs(toNum - fromNum) - 1;
+
+						for (int i = 1; i <= fieldsBetweenRook; i++)
+						{
+							if (fromNum > toNum)
+							{
+								fieldsToCheck.Add(getFieldForaIntCharAndNum(fromChar, fromNum - i));
+							}
+							if (fromNum < toNum)
+							{
+								fieldsToCheck.Add(getFieldForaIntCharAndNum(fromChar, fromNum + i));
+							}
+						}
+
+					}
+					if (fromChar != toChar)
+					{
+						int fieldsBetweenRook = Math.Abs(fromChar - toChar) - 1;
+
+						for (int i = 1; i <= fieldsBetweenRook; i++)
+						{
+							if (fromChar > toChar)
+							{
+								fieldsToCheck.Add(getFieldForaIntCharAndNum(fromChar - i, fromNum));
+							}
+							if (fromChar < toChar)
+							{
+								fieldsToCheck.Add(getFieldForaIntCharAndNum(fromChar + i, fromNum));
+							}
+						}
+					}
+			}
+
 
 			foreach (string field in fieldsToCheck)
 			{

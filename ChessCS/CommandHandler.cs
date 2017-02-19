@@ -17,17 +17,25 @@ namespace ChessCS
 		{
 			if (ActiveColor == ConsoleColor.White)
 			{
-				Console.WriteLine("It's White's move.");
+				Console.WriteLine("It's white's move.");
 			}
 			else {
-				Console.WriteLine("It's Black's move.");
+				Console.WriteLine("It's black's move.");
 			}
-			Console.Write("Which figure do you want to move (Enter Field): ");
-			string from = Console.ReadLine();
-			Console.Write("Which field do you want to move to: ");
-			string to = Console.ReadLine();
+			Console.Write("From field: ");
+			char fromChar = Console.ReadKey().KeyChar;
+			char fromNum = Console.ReadKey().KeyChar;
 
-			return new Move(from.ToUpper(), to.ToUpper());
+			Console.Write("\r\n");
+
+			Console.Write("To field: ");
+			char toChar = Console.ReadKey().KeyChar;
+			char toNum = Console.ReadKey().KeyChar;
+
+			string from = fromChar.ToString().ToUpper() + fromNum.ToString();
+			string to = toChar.ToString().ToUpper() + toNum.ToString();
+
+			return new Move(from, to);
 		}
 	}
 }
