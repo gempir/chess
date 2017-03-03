@@ -12,6 +12,11 @@ namespace ChessCS
 			initalizeBoard();
 		}
 
+		/// <summary>
+		/// Will validate the move and change the positions of the figures on the board
+		/// will throw an InvalidOperationException when the move is invalid
+		/// </summary>
+		/// <param name="move">Move.</param>
 		public void handleMove(Move move)
 		{
 			Figure from = getFigureFromField(move.From);
@@ -63,6 +68,11 @@ namespace ChessCS
 			return false;
 		}
 
+		/// <summary>
+		/// Check if a field is light or dark color
+		/// </summary>
+		/// <returns>The color of field.</returns>
+		/// <param name="field">Field.</param>
 		public static string getColorOfField(string field)
 		{
 			int number = int.Parse(field[1] + "");
@@ -91,8 +101,7 @@ namespace ChessCS
 			}
 		}
 
-
-		void initalizeBoard()
+		private void initalizeBoard()
 		{
 			// white
 			BoardPositions.Add("A1", new Rook(ConsoleColor.White));

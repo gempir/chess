@@ -6,6 +6,11 @@ namespace ChessCS
 	{
 		public static ConsoleColor ActiveColor = ConsoleColor.White;
 
+		/// <summary>
+		/// Checks the current active player
+		/// </summary>
+		/// <returns><c>true</c>, if player was active, <c>false</c> otherwise.</returns>
+		/// <param name="Color">Color.</param>
 		public static bool isActive(ConsoleColor Color)
 		{
 			return 
@@ -13,6 +18,10 @@ namespace ChessCS
 				| (Color == ConsoleColor.Black && ActiveColor == ConsoleColor.Black);
 		}
 
+		/// <summary>
+		/// Reads input from the user to get the next move on the board
+		/// </summary>
+		/// <returns>The move.</returns>
 		public Move getMove()
 		{
 			if (ActiveColor == ConsoleColor.White)
